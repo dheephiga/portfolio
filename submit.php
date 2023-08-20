@@ -1,8 +1,8 @@
 <?php
 
-$env_file_path = realpath("/.env");
-
-$servername = $_ENV['servername'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once('.env');
+$servername = $_ENV['servername']; 
 $username = $_ENV['username'];
 $password = $_ENV['password'];
 $dbname = $_ENV['dbname'];
@@ -32,6 +32,5 @@ else
 }
 
 $conn->close();
-
+}
 ?>
-
