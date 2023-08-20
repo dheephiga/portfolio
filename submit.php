@@ -12,7 +12,8 @@ if($conn->connect_error)
     die("Connection Failed : ".$conn->connect_error);
 }
 
-$name = $_POST['name']''
+$name = $_POST['name'];
 $email = $_POST['email'];
 $subject = $_POST['subject'];
 $message = $_POST['message'];
+
