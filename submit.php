@@ -1,19 +1,19 @@
-<?php
+<?php include "../inc/dbinfo.inc";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once('.env');
-$servername = $_ENV['servername']; 
-$username = $_ENV['username'];
-$password = $_ENV['password'];
-$dbname = $_ENV['dbname'];
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     require_once('.env');
+// $servername = $_ENV['servername']; 
+// $username = $_ENV['username'];
+// $password = $_ENV['password'];
+// $dbname = $_ENV['dbname'];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD);
 
 if($conn->connect_error)
 {
     die("Connection Failed : ".$conn->connect_error);
 }
-
+$datbase = mysqli_select_db($conn,DB_DATABASE);
 $name = $_POST['name'];
 $email = $_POST['email'];
 $subject = $_POST['subject'];
@@ -32,5 +32,5 @@ else
 }
 
 $conn->close();
-}
+//}
 ?>
